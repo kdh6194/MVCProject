@@ -1,7 +1,6 @@
 package honeybee.spring4.mvc.employee.service;
 
 import honeybee.spring4.mvc.employee.dao.EMPDAO;
-import honeybee.spring4.mvc.employee.dao.EMPDAOImpl;
 import honeybee.spring4.mvc.employee.model.EMPV0;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

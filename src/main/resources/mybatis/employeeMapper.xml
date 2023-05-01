@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="employee">
+    <select id="selectsql" statementType="PREPARED" resultType="honeybee.spring4.mvc.employee.model.EMPV0">
+        select EMPLOYEE_ID, FIRST_NAME, EMAIL, JOB_ID, department_id from EMPLOYEES order by EMPLOYEE_ID
+    </select>
+    <select id="selecOnesql" statementType="PREPARED" parameterType="int" resultType="honeybee.spring4.mvc.employee.model.EMPV0">
+        select * from EMPLOYEES where EMPLOYEE_ID = #{empno} order by EMPLOYEE_ID desc
+    </select>
+    <insert id="insertsql" statementType="PREPARED" parameterType="honeybee.spring4.mvc.employee.model.EMPV0" >
+        insert into EMPLOYEES (EMPLOYEE_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,department_id)
+        values (#{empno},#{fname},#{lname},#{email},#{phone},#{hdate} ,#{jobid},#{sal},#{comm},#{mgrid},#{deptno})
+    </insert>
+    <update id="updatesql" statementType="PREPARED" parameterType="honeybee.spring4.mvc.employee.model.EMPV0">
+        update EMPLOYEES set FIRST_NAME = #{fname}, LAST_NAME = #{lname}, EMAIL = #{email}, PHONE_NUMBER = #{phone} where EMPLOYEE_ID = #{empno}
+    </update>
+    <delete id="deletesql" statementType="PREPARED" parameterType="int">
+        delete from EMPLOYEES where EMPLOYEE_ID = #{empno}
+    </delete>
+</mapper>

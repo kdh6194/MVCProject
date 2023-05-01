@@ -35,14 +35,10 @@ public class EmpController {
     @GetMapping("/select")
     public ModelAndView select(@RequestParam int empno) {
         ModelAndView mv = new ModelAndView();
-        String select = "empfail";
 
-        EMPV0 empv0 = empsrv.empSelectOne(empno);
-        if (empv0 != null){
-            mv.addObject("emps",empv0);
-            select="emplist";
-        }
-        mv.setViewName(select);
+            mv.addObject("emps",empsrv.empSelectOne(empno));
+
+        mv.setViewName("emplist");
 
         return mv;
     }
